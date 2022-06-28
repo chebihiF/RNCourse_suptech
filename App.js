@@ -6,11 +6,21 @@ import { Button, StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.dummyText}>Hello World</Text>
+      <View
+        style={{ flex: 2, backgroundColor: "red", width: 100, height: 100 }}
+      >
+        <Text>1</Text>
       </View>
-      <Text style={styles.dummyText}>another piece of text !!!!</Text>
-      <Button title="Tap me !" />
+      <View
+        style={{ flex: 1, backgroundColor: "green", width: 100, height: 100 }}
+      >
+        <Text>2</Text>
+      </View>
+      <View
+        style={{ flex: 1, backgroundColor: "blue", width: 100, height: 100 }}
+      >
+        <Text>3</Text>
+      </View>
     </View>
   );
 }
@@ -18,9 +28,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
   },
-  dummyText: { margin: 16, borderWidth: 2, borderColor: "red", padding: 16 },
 });
