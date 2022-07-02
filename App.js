@@ -19,7 +19,7 @@ export default function App() {
   const addGoalHandler = (entredGoalText) => {
     setCoursGoals([
       ...coursGoals,
-      { text: entredGoalText, id: Math.floor(Date.now() / 1000).toString() },
+      { text: entredGoalText, id: (Date.now() / 1000).toString() },
     ]);
   };
 
