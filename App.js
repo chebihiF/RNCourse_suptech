@@ -3,6 +3,7 @@
 import { useState } from "react";
 import {
   Button,
+  FlatList,
   ScrollView,
   StyleSheet,
   Text,
@@ -19,7 +20,10 @@ export default function App() {
   };
 
   const addGoalHandler = () => {
-    setCoursGoals([...coursGoals, entredGoalText]);
+    setCoursGoals([
+      ...coursGoals,
+      { text: entredGoalText, id: Math.floor(Date.now() / 1000).toString() },
+    ]);
   };
 
   return (
@@ -34,15 +38,19 @@ export default function App() {
         <Button title="Add Goal" onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView>
-          {coursGoals.map((goal) => (
-            <View style={styles.goalItem}>
-              <Text style={styles.goalText} key={goal}>
-                {goal}
-              </Text>
-            </View>
-          ))}
-        </ScrollView>
+        <FlatList
+          data={coursGoals}
+          renderItem={(itemData) => {
+            return (
+              <View style={styles.goalItem}>
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </View>
+            );
+          }}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+        />
       </View>
     </View>
   );
