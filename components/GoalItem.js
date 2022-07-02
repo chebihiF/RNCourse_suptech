@@ -7,7 +7,7 @@ const GoalItem = (props) => {
     <View style={[styles.goalItem, props.goalItemStyle]}>
       <Pressable
         android_ripple={{ color: "#210644" }}
-        onLongPress={props.onDeleteItem.bind(this, props.id)}
+        onPress={props.onDeleteItem.bind(this, props.id)}
         style={({ pressed }) => pressed && { color: "#210644" }}
       >
         <Text style={styles.goalText}>{props.text}</Text>
