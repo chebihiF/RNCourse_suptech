@@ -22,6 +22,7 @@ export default function App() {
       ...coursGoals,
       { text: entredGoalText, id: (Date.now() / 1000).toString() },
     ]);
+    SetdisplayModal("rer");
   };
 
   const deleteGoealHandler = (id) => {
@@ -31,7 +32,6 @@ export default function App() {
   };
 
   const showModalHandler = () => {
-    console.log("test");
     SetdisplayModal(true);
   };
 
